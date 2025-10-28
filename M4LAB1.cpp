@@ -12,10 +12,14 @@ int main (){
 
     // declare variable
     int firstNum, secondNum, answer; 
-    firstNum = 2;
-    secondNum= 1; 
-    answer = firstNum * secondNum; 
+    firstNum = 5;
+    // secondNum= 1; 
+    // answer = firstNum * secondNum; 
 
-    // A sample message, without variables 
-    cout << "2 time 1 is 2\n";
+    for (int i=1; i<= 5; i++) {
+    answer = firstNum * i;
+    cout << firstNum << " times " << i << " is " << answer << endl; 
+
+    }
+    
 }
