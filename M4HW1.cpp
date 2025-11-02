@@ -11,5 +11,5 @@ using namespace std;
 int main () {
 
     // A sample message, without variables 
-    
+    cout << "2 times 1 is 2\n"; 
 }
