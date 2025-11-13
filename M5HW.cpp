@@ -5,76 +5,69 @@ Olivia DeLellis
 Nov 13, 2025
 */
 
-
-
-
 #include <iostream>
+#include <iomanip>
 #include <string>
-
-void q5_distance() {
-cout << "\n--- Question 5: Distance Traveled ---\n";
-double speed;
-int hours;
-cout << "What is the speed of the vehicle in mph? ";
-while (cin >> speed) || speed < 0.0) {
-cout << "Do not accept negative speed. Enter speed (>= 0): ";
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
-cout << "How many hours has it traveled? ";
-while (!(cin >> hours) || hours < 1) {
-cout << "Time traveled must be at least 1 hour. Enter hours: ";
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
-cout << "\nHour\tDistance Traveled\n";
-cout << "--------------------------------\n";
-for (int h = 1; h <= hours; ++h) {
-double dist = speed * h;
-cout << setw(3) << h << "\t" << setw(6) << dist << "\n";
-}
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
+using namespace std;
 
 
-// Question 6: Menu-based program calling questions 1-5
 int main() {
-cout << "CSC 134 - M5HW1 - Questions 1 through 5 (Menu)" << endl;
-bool running = true;
-while (running) {
-cout << "\nMain Menu:\n";
-cout << "1 - Question 1: Average Rainfall\n";
-cout << "2 - Question 2: Volume of a Block\n";
-cout << "3 - Question 3: Roman Numeral (1-10)\n";
-cout << "4 - Question 4: Geometry Calculator\n";
-cout << "5 - Question 5: Distance Traveled\n";
-cout << "6 - Quit\n";
-cout << "Enter your choice (1-6): ";
+string month1, month2, month3;
+double rain1, rain2, rain3;
+
+//Question 1: Avergae rainfall for three months 
+cout << "Enter month: ";
+cin >> month1;
+cout << "Enter rainfall for " << month1 << ": ";
+cin >> rain1;
 
 
-int choice;
-if (!(cin >> choice)) {
-cout << "Invalid input. Enter a number between 1 and 6.\n";
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-continue;
+cout << "Enter month: ";
+cin >> month2;
+cout << "Enter rainfall for " << month2 << ": ";
+cin >> rain2;
+
+
+cout << "Enter month: ";
+cin >> month3;
+cout << "Enter rainfall for " << month3 << ": ";
+cin >> rain3;
+
+
+double average = (rain1 + rain2 + rain3) / 3.0;
+
+
+cout << fixed << setprecision(2);
+cout << "The average rainfall for " << month1 << ", " << month2 << ", and " << month3
+<< " is " << average << " inches." << endl;
+
 }
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
+//Question 2: Volume of a block
 
+    double width, length, height;
 
-switch (choice) {
-case 1: q1_rainfall(); break;
-case 2: q2_volume(); break;
-case 3: q3_roman(); break;
-case 4: q4_geometry(); break;
-case 5: q5_distance(); break;
-case 6: running = false; cout << "Exiting program. Goodbye!\n"; break;
-default:
-cout << "Invalid choice. The valid choices are 1 through 6.\n";
-break;
+    cout << "Enter width: ";
+    cin >> width;
+    while (width <= 0) {
+        cout << "Width must be greater than zero. Try again: ";
+        cin >> width;
+    }
+    cout << "Enter length: ";
+    cin >> length;
+    while (length <=0) {
+        cout << "Length must be greater than zero. Try again: ";
+        cin >> length;  
+    }
+    cout << "Enter height: ";
+    cin >> height;
+    while (height <= 0) {
+        cout << "Height must be greater than zero. Try again: ";
+        cin >> height;
+    }
+    double volume = width * length * height;
+    cout << "The volume is " << volume << endl;
+
 }
-}
 
 
-return 0;
-}
+
